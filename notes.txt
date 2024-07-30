@@ -1,0 +1,59 @@
+=== SEKCJA 1️⃣ ===
+
+    💥MERN = {
+        MongoDB,
+        Express,
+        React,
+        Node
+    }
+
+    client (browser) wysyła request do servera <=> serwer zwraca response do clienta
+
+    💥Backend:
+        ◽ REST API (Representational State Transfer), poplarniejsze.
+            - ścieżki url z żądaniami HTTP z GET, POST, PATCH, DELETE.  wszystko jest traktowane jako zasób (np. użytkownicy, zdjęcia, artykuły). Każdy zasób ma unikalny URI (Uniform Resource Identifier). GET: Pobiera zasób. POST: Tworzy nowy zasób. PUT: Aktualizuje istniejący zasób. DELETE: Usuwa zasób.
+            - endpointy trigerujące różne akcje.
+        ◽ GraphQL API
+            - jeden URL, zwykle POST, zawiera query.
+            - używa query expression zamiast HTTP request.
+            - wymaga nauczenia się jeżyka do tworzenia query.
+
+        Oba podejścia egzekwują kod po stronie serwera.
+
+    💥Dwa sposoby łączenia Node z react:
+        ◽ Serwer przetrzymuje Node API + React SPA na jednej domenie.
+            - requesty które nie targetują API routes zwracają React SPA.
+        ◽ Jeden serwer do Frontendu, drugi do Backend Api.
+            - Nodex/Express przyjmuje requesty.
+            - React SPA na drugim serwerze.
+
+        ◽ Niezależnie od wyboru, frontend zawsze łączy się w ten sam sposób z backendem
+
+        *Trzeci sposób: Server-side rendered Pages (SRP)
+        ◽ Komponenty generowane przez serwer.
+
+    💥 ZAPAMIĘTAJ
+
+        ➡ Zwraca json
+        app.get('/products', (req, res, next) => {
+            res.status(200).json({ products: DUMMY_PRODUCTS });
+        });
+
+        ⬅Odbiera json
+        useEffect(() => {
+            const fetchProducts = async () => {
+                setIsLoading(true);
+                const response = await fetch('http://przykladowe_url/products');
+
+                const responseData = await response.json();
+
+                setLoadedProducts(responseData.products);
+                setIsLoading(false);
+            };
+
+            fetchProducts();
+        }, []);
+
+=== SEKCJA 2️⃣ ===
+
+🛠 Zrób/znajdź ściągawkę do headersów w http requestach
