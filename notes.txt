@@ -9,6 +9,9 @@
 
     client (browser) wysyła request do servera <=> serwer zwraca response do clienta
 
+=== SEKCJA 2️⃣ ===
+
+
     💥Backend:
         ◽ REST API (Representational State Transfer), poplarniejsze.
             - ścieżki url z żądaniami HTTP z GET, POST, PATCH, DELETE.  wszystko jest traktowane jako zasób (np. użytkownicy, zdjęcia, artykuły). Każdy zasób ma unikalny URI (Uniform Resource Identifier). GET: Pobiera zasób. POST: Tworzy nowy zasób. PUT: Aktualizuje istniejący zasób. DELETE: Usuwa zasób.
@@ -54,6 +57,31 @@
             fetchProducts();
         }, []);
 
-=== SEKCJA 2️⃣ ===
+=== SEKCJA 3️⃣ ===
 
-🛠 Zrób/znajdź ściągawkę do headersów w http requestach
+    💥 Planowanie
+        1. Pomysł na aplikację lub problem, który można rozwiązać aplikacją.
+            - Aplikacja do udostępniania odwiedzonych miejsc wraz z obrazami i opisem.
+            - Inni użytkownicy mogą przeglądać miejsca odwiedzone przez danego/klikniętego użytkownika.
+        2. Stworzenie projektu.
+            - CRUD
+        3. Rozplanuj obsługę danych, które będa obsługiwane.
+            - Wczytywanie obrazów oraz walidacja danych.
+            - Różne widoki.
+            - Autoryzacja.
+        4. Zaplanuj endpointy i strony lub komponenty.
+
+
+
+
+
+
+
+
+
+
+
+🛠 *Skup się na obsłudze css oraz tagów <img/>
+🛠 Zrób/znajdź ściągawkę do headersów w http requestach.
+🛠 Naucz się narzędzia do tworzenia projektów aplikacji/frontendu/stron www (skatch app, figma?).
+🛠 Framer naucz się go porządnie.
