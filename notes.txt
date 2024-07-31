@@ -89,7 +89,11 @@ SEKCJA 4️⃣ {
         - łączenie inputu z state'em, value input to state, onChange uruchamiane jest setState.
 }
 
-SEKCJA 5️⃣ {}
+SEKCJA 5️⃣ {
+    Tworzenie Frontendu
+
+    💥
+}
 
 ***
     .map(() => {})
