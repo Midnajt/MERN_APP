@@ -1,4 +1,4 @@
-=== SEKCJA 1️⃣ ===
+SEKCJA 1️⃣ {
 
     💥MERN = {
         MongoDB,
@@ -8,9 +8,8 @@
     }
 
     client (browser) wysyła request do servera <=> serwer zwraca response do clienta
-
-=== SEKCJA 2️⃣ ===
-
+}
+SEKCJA 2️⃣ {
 
     💥Backend:
         ◽ REST API (Representational State Transfer), poplarniejsze.
@@ -56,8 +55,8 @@
 
             fetchProducts();
         }, []);
-
-=== SEKCJA 3️⃣ ===
+}
+SEKCJA 3️⃣ {
 
     💥 Planowanie
         1. Pomysł na aplikację lub problem, który można rozwiązać aplikacją.
@@ -70,13 +69,34 @@
             - Różne widoki.
             - Autoryzacja.
         4. Zaplanuj endpointy i strony lub komponenty.
+}
+SEKCJA 4️⃣ {
+    💥 React - odświeżenei
+    💥 Czym jest React
+        - biblioteka js, która służy do tworzenia interfejsów użytkownika, która pracuje po stronie klienta.
+        - pseudo-framework, po dodaniu rozwiązań takich jak redux, routing React niemal staje się frameworkiem.
+        - podejście deklaratywne, definiujemy wynik, a nie jak ma do niego dojść. W vanilla js musielibyśmy wszystko oprogramować.
+        - w projekcie zarządzami komponentami, które renderują odpowiednie treści w danym momencie.
+        - React wykorzystywany jest przedewszystkim do tworzenia SPA - Single Page Aplication.
 
+    ✔ O co chodzi w React? Renderowanie i aktualizowanie interfejsu, obsługa zachowań użytkownika.
+    ✔ Co to są props? Dane przekazywane z komponentu rodzica to dzieci.
+    ✔ Czym są komponenty? Funkcje js zwracające składnie JSX, stanowiącą bloki elementów w projekcie.
+    ✔ Co to jest state? To zmienne które możesz zmieniać wewnątrząc komponentu, wywoła go je ponowne renderowanie.
+    ✔ Co to jest hook? Specjalne funkcje obsługujące różne wydarzenia w komponencie, którą pozwalają dodawać wiele opcji wewnątrz komponentu.
 
+    💥 Two-way-binding
+        - łączenie inputu z state'em, value input to state, onChange uruchamiane jest setState.
+}
 
+SEKCJA 5️⃣ {}
 
-
-
-
+***
+    .map(() => {})
+        - nawiasy klamrowe przekazują pełne ciało funkcji co oznacza że nalezy użyć słowa kluczowego 'return'
+    .map(() => ())
+        - skrócona funkcja strzałkowa
+        wynik po '=>' jest automatycznie zwracany, tak jakby tam było 'return'.
 
 
 
@@ -85,3 +105,19 @@
 🛠 Zrób/znajdź ściągawkę do headersów w http requestach.
 🛠 Naucz się narzędzia do tworzenia projektów aplikacji/frontendu/stron www (skatch app, figma?).
 🛠 Framer naucz się go porządnie.
+
+
+bcp{
+    In such cases it will help to replace (in package.json) ...
+
+    "start": "react-scripts start" 
+    ... with ...
+
+    "start": "react-scripts --openssl-legacy-provider start"
+    ... and ...
+
+    "build": "react-scripts build" 
+    ... with ...
+
+    "build": "react-scripts --openssl-legacy-provider build"
+}
