@@ -44,10 +44,13 @@ JOHN-COURSE {
                         <h1>Landing</h1>
                     </Wrapper>
                 );
-            }=
+            }
     }
 
+        SEKCJA 5️⃣: Error Page {
 
+        💥
+    }
 }
 
 
