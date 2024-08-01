@@ -92,7 +92,14 @@ SEKCJA 4️⃣ {
 SEKCJA 5️⃣ {
     Tworzenie Frontendu
 
-    💥
+    💥 react-router-dom -> obsługuje routing, tworzenie url i zachowanie aplikacji na tej podstawie
+    💥 
+    💥 
+    💥 
+    💥 
+    💥 
+    💥 
+    💥 
 }
 
 ***
@@ -114,13 +121,13 @@ SEKCJA 5️⃣ {
 bcp{
     In such cases it will help to replace (in package.json) ...
 
-    "start": "react-scripts start" 
+    "start": "react-scripts start"
     ... with ...
 
     "start": "react-scripts --openssl-legacy-provider start"
     ... and ...
 
-    "build": "react-scripts build" 
+    "build": "react-scripts build"
     ... with ...
 
     "build": "react-scripts --openssl-legacy-provider build"
