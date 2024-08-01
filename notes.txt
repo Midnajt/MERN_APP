@@ -1,16 +1,15 @@
 JOHN-COURSE {
-    SEKCJA 12️⃣: Setup {
-        💥 Skrót 'ra' -> snippety do tworzenia komponentów
+    SEKCJA 2️⃣: Setup {
+        💥 Skrót 'ra' -> snippety do tworzenia komponentów.
         💥 Vite ❤
             - szybsza i łatwiejsza konfiguracja.
             - łatwiejsze podpinanie pluginów.
-
     }
 
-    SEKCJA 3️⃣: react Router {
+    SEKCJA 3️⃣: React Router {
         💥 W folderze 'pages' tworzymy komponenty z stronami. Komponenty są importowane i jednocześnie eksportowane z index.js, który jest w tym samym folderze. index.js jest domyślnym entry-pointem, dzięki temu czytelniej i prościej możemy pobierać komponenty z tego folderu np: import { HomeLayout } from "./pages";
 
-        💥 <Link/> z react-router-dom służy do zmieniania route'ów w aplikacji SPA}
+        💥 <Link/> z react-router-dom służy do zmieniania route'ów w aplikacji SPA
 
         💥 <Outlet/> from "react-router-dom"; wyświetla zagnieżdżone routy w rodzicu, w którym użyto tego kopmonentu
 
@@ -20,26 +19,37 @@ JOHN-COURSE {
                 path: "/",
                 element: <HomeLayout />,
                 children: [
-                {
-                    index: true,
-                    element: <Landing />,
-                },
-                {
-                    path: "register",
-                    element: <Register />,
-                },
+                    {
+                        index: true,
+                        element: <Landing />,
+                    },
+                    {
+                        path: "register",
+                        element: <Register />,
+                    },
                 ],
             },
         ]);
+    }
 
-        💥 
+    SEKCJA 4️⃣: Landing Page - styled components {
+        💥 style css i loika js w jednym pliku komponentu.
+        💥 tworzy unikatowe klasy, nie trzeba być oryginalnym i unikatowym przypisując klasę do tagu, chyba że to klasa globalna.
+        💥 jeżeli mamy globalną klasę .btn, to możemy do niej dodawać parametry w styled components danego kopmonentu.
+        💥 import styled from "styled-components";
+           const Wrapper = styled.div`<style css>`;
+            function Landing() {
+                return (
+                    <Wrapper>
+                        <h1>Landing</h1>
+                    </Wrapper>
+                );
+            }=
+    }
 
-        💥 
 
-        💥 
-
-        💥 
 }
+
 
 
 
