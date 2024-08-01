@@ -1,106 +1,21 @@
-SEKCJA 1️⃣ {
+JOHN-COURSE {
+    SEKCJA 1️⃣: Setup {
+        💥 Skrót 'ra' -> snippety do tworzenia komponentów
+        💥 Vite ❤
+            - szybsza i łatwiejsza konfiguracja.
+            - łatwiejsze podpinanie pluginów.
 
-    💥MERN = {
-        MongoDB,
-        Express,
-        React,
-        Node
     }
-
-    client (browser) wysyła request do servera <=> serwer zwraca response do clienta
-}
-SEKCJA 2️⃣ {
-
-    💥Backend:
-        ◽ REST API (Representational State Transfer), poplarniejsze.
-            - ścieżki url z żądaniami HTTP z GET, POST, PATCH, DELETE.  wszystko jest traktowane jako zasób (np. użytkownicy, zdjęcia, artykuły). Każdy zasób ma unikalny URI (Uniform Resource Identifier). GET: Pobiera zasób. POST: Tworzy nowy zasób. PUT: Aktualizuje istniejący zasób. DELETE: Usuwa zasób.
-            - endpointy trigerujące różne akcje.
-        ◽ GraphQL API
-            - jeden URL, zwykle POST, zawiera query.
-            - używa query expression zamiast HTTP request.
-            - wymaga nauczenia się jeżyka do tworzenia query.
-
-        Oba podejścia egzekwują kod po stronie serwera.
-
-    💥Dwa sposoby łączenia Node z react:
-        ◽ Serwer przetrzymuje Node API + React SPA na jednej domenie.
-            - requesty które nie targetują API routes zwracają React SPA.
-        ◽ Jeden serwer do Frontendu, drugi do Backend Api.
-            - Nodex/Express przyjmuje requesty.
-            - React SPA na drugim serwerze.
-
-        ◽ Niezależnie od wyboru, frontend zawsze łączy się w ten sam sposób z backendem
-
-        *Trzeci sposób: Server-side rendered Pages (SRP)
-        ◽ Komponenty generowane przez serwer.
-
-    💥 ZAPAMIĘTAJ
-
-        ➡ Zwraca json
-        app.get('/products', (req, res, next) => {
-            res.status(200).json({ products: DUMMY_PRODUCTS });
-        });
-
-        ⬅Odbiera json
-        useEffect(() => {
-            const fetchProducts = async () => {
-                setIsLoading(true);
-                const response = await fetch('http://przykladowe_url/products');
-
-                const responseData = await response.json();
-
-                setLoadedProducts(responseData.products);
-                setIsLoading(false);
-            };
-
-            fetchProducts();
-        }, []);
-}
-SEKCJA 3️⃣ {
-
-    💥 Planowanie
-        1. Pomysł na aplikację lub problem, który można rozwiązać aplikacją.
-            - Aplikacja do udostępniania odwiedzonych miejsc wraz z obrazami i opisem.
-            - Inni użytkownicy mogą przeglądać miejsca odwiedzone przez danego/klikniętego użytkownika.
-        2. Stworzenie projektu.
-            - CRUD
-        3. Rozplanuj obsługę danych, które będa obsługiwane.
-            - Wczytywanie obrazów oraz walidacja danych.
-            - Różne widoki.
-            - Autoryzacja.
-        4. Zaplanuj endpointy i strony lub komponenty.
-}
-SEKCJA 4️⃣ {
-    💥 React - odświeżenei
-    💥 Czym jest React
-        - biblioteka js, która służy do tworzenia interfejsów użytkownika, która pracuje po stronie klienta.
-        - pseudo-framework, po dodaniu rozwiązań takich jak redux, routing React niemal staje się frameworkiem.
-        - podejście deklaratywne, definiujemy wynik, a nie jak ma do niego dojść. W vanilla js musielibyśmy wszystko oprogramować.
-        - w projekcie zarządzami komponentami, które renderują odpowiednie treści w danym momencie.
-        - React wykorzystywany jest przedewszystkim do tworzenia SPA - Single Page Aplication.
-
-    ✔ O co chodzi w React? Renderowanie i aktualizowanie interfejsu, obsługa zachowań użytkownika.
-    ✔ Co to są props? Dane przekazywane z komponentu rodzica to dzieci.
-    ✔ Czym są komponenty? Funkcje js zwracające składnie JSX, stanowiącą bloki elementów w projekcie.
-    ✔ Co to jest state? To zmienne które możesz zmieniać wewnątrząc komponentu, wywoła go je ponowne renderowanie.
-    ✔ Co to jest hook? Specjalne funkcje obsługujące różne wydarzenia w komponencie, którą pozwalają dodawać wiele opcji wewnątrz komponentu.
-
-    💥 Two-way-binding
-        - łączenie inputu z state'em, value input to state, onChange uruchamiane jest setState.
 }
 
-SEKCJA 5️⃣ {
-    Tworzenie Frontendu
 
-    💥 react-router-dom -> obsługuje routing, tworzenie url i zachowanie aplikacji na tej podstawie
-    💥 
-    💥 
-    💥 
-    💥 
-    💥 
-    💥 
-    💥 
-}
+
+
+
+
+
+
+
 
 ***
     .map(() => {})
@@ -111,12 +26,111 @@ SEKCJA 5️⃣ {
 
 
 
-
+🛠 skrót 'ra' -> snippety do tworzenia komponentów
 🛠 *Skup się na obsłudze css oraz tagów <img/>
 🛠 Zrób/znajdź ściągawkę do headersów w http requestach.
 🛠 Naucz się narzędzia do tworzenia projektów aplikacji/frontendu/stron www (skatch app, figma?).
 🛠 Framer naucz się go porządnie.
 
+MAX-COURse {
+    SEKCJA 1️⃣ {
+
+        💥MERN = {
+            MongoDB,
+            Express,
+            React,
+            Node
+        }
+
+        client (browser) wysyła request do servera <=> serwer zwraca response do clienta
+    }
+    SEKCJA 2️⃣ {
+
+        💥Backend:
+            ◽ REST API (Representational State Transfer), poplarniejsze.
+                - ścieżki url z żądaniami HTTP z GET, POST, PATCH, DELETE.  wszystko jest traktowane jako zasób (np. użytkownicy, zdjęcia, artykuły). Każdy zasób ma unikalny URI (Uniform Resource Identifier). GET: Pobiera zasób. POST: Tworzy nowy zasób. PUT: Aktualizuje istniejący zasób. DELETE: Usuwa zasób.
+                - endpointy trigerujące różne akcje.
+            ◽ GraphQL API
+                - jeden URL, zwykle POST, zawiera query.
+                - używa query expression zamiast HTTP request.
+                - wymaga nauczenia się jeżyka do tworzenia query.
+
+            Oba podejścia egzekwują kod po stronie serwera.
+
+        💥Dwa sposoby łączenia Node z react:
+            ◽ Serwer przetrzymuje Node API + React SPA na jednej domenie.
+                - requesty które nie targetują API routes zwracają React SPA.
+            ◽ Jeden serwer do Frontendu, drugi do Backend Api.
+                - Nodex/Express przyjmuje requesty.
+                - React SPA na drugim serwerze.
+
+            ◽ Niezależnie od wyboru, frontend zawsze łączy się w ten sam sposób z backendem
+
+            *Trzeci sposób: Server-side rendered Pages (SRP)
+            ◽ Komponenty generowane przez serwer.
+
+        💥 ZAPAMIĘTAJ
+
+            ➡ Zwraca json
+            app.get('/products', (req, res, next) => {
+                res.status(200).json({ products: DUMMY_PRODUCTS });
+            });
+
+            ⬅Odbiera json
+            useEffect(() => {
+                const fetchProducts = async () => {
+                    setIsLoading(true);
+                    const response = await fetch('http://przykladowe_url/products');
+
+                    const responseData = await response.json();
+
+                    setLoadedProducts(responseData.products);
+                    setIsLoading(false);
+                };
+
+                fetchProducts();
+            }, []);
+    }
+    SEKCJA 3️⃣ {
+
+        💥 Planowanie
+            1. Pomysł na aplikację lub problem, który można rozwiązać aplikacją.
+                - Aplikacja do udostępniania odwiedzonych miejsc wraz z obrazami i opisem.
+                - Inni użytkownicy mogą przeglądać miejsca odwiedzone przez danego/klikniętego użytkownika.
+            2. Stworzenie projektu.
+                - CRUD
+            3. Rozplanuj obsługę danych, które będa obsługiwane.
+                - Wczytywanie obrazów oraz walidacja danych.
+                - Różne widoki.
+                - Autoryzacja.
+            4. Zaplanuj endpointy i strony lub komponenty.
+    }
+    SEKCJA 4️⃣ {
+        💥 React - odświeżenei
+        💥 Czym jest React
+            - biblioteka js, która służy do tworzenia interfejsów użytkownika, która pracuje po stronie klienta.
+            - pseudo-framework, po dodaniu rozwiązań takich jak redux, routing React niemal staje się frameworkiem.
+            - podejście deklaratywne, definiujemy wynik, a nie jak ma do niego dojść. W vanilla js musielibyśmy wszystko oprogramować.
+            - w projekcie zarządzami komponentami, które renderują odpowiednie treści w danym momencie.
+            - React wykorzystywany jest przedewszystkim do tworzenia SPA - Single Page Aplication.
+
+        ✔ O co chodzi w React? Renderowanie i aktualizowanie interfejsu, obsługa zachowań użytkownika.
+        ✔ Co to są props? Dane przekazywane z komponentu rodzica to dzieci.
+        ✔ Czym są komponenty? Funkcje js zwracające składnie JSX, stanowiącą bloki elementów w projekcie.
+        ✔ Co to jest state? To zmienne które możesz zmieniać wewnątrząc komponentu, wywoła go je ponowne renderowanie.
+        ✔ Co to jest hook? Specjalne funkcje obsługujące różne wydarzenia w komponencie, którą pozwalają dodawać wiele opcji wewnątrz komponentu.
+
+        💥 Two-way-binding
+            - łączenie inputu z state'em, value input to state, onChange uruchamiane jest setState.
+    }
+
+    SEKCJA 5️⃣ {
+        Tworzenie Frontendu
+
+        💥 react-router-dom -> obsługuje routing, tworzenie url i zachowanie aplikacji na tej podstawie
+
+    }
+}
 
 bcp{
     In such cases it will help to replace (in package.json) ...
