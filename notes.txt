@@ -47,10 +47,8 @@ JOHN-COURSE {
             }
     }
 
-        SEKCJA 5️⃣: Error Page {
-
-        💥
-    }
+    SEKCJA 5️⃣: Error Page {💥 }
+    SEKCJA 6️⃣: Register Page {💥 }
 }
 
 
