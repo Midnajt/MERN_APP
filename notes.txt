@@ -49,6 +49,8 @@ JOHN-COURSE {
 
     SEKCJA 5️⃣: Error Page {💥 }
     SEKCJA 6️⃣: Register Page {💥 }
+    SEKCJA 7️⃣: Login Page {💥 }
+    SEKCJA 8️⃣: Dashboard Page {💥 }
 }
 
 
