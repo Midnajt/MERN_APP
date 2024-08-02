@@ -50,7 +50,20 @@ JOHN-COURSE {
     SEKCJA 5️⃣: Error Page {💥 }
     SEKCJA 6️⃣: Register Page {💥 }
     SEKCJA 7️⃣: Login Page {💥 }
-    SEKCJA 8️⃣: Dashboard Page {💥 }
+    SEKCJA 8️⃣: Dashboard Page {
+        💥 hook useContext służy do zarządzania zmiennymi oraz funkcjami globalnymi, które mają wpływ na wygląd aplikacji
+            - import { createContext} from "react";
+            - tworzymy const DashboardContext = createContext(); przed zdefiniowaniem komponentu
+            - jako nadrzędny komponent ustawiamy:
+             <DashboardContext.Provider value={{ , toggleSidebar, logOutUser, isDarkTheme, toggleDarkTheme}}><DashboardContext.Provider/>
+            - w value mamy funkcje i staty
+            - exportujemy context, aby można było korzystać z niego w innych miejscach:
+                export const useDashboardContext = () => useContext(DashboardContext);
+            - import w innym komponencie:
+            import { useDashboardContext } from "../pages/DashboardLayout";
+            - zdefiniowanie funkcji w komponencie pobranej z contextu:
+            const { toggleSidebar } = useDashboardContext();
+        }
 }
 
 
