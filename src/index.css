@@ -1,5 +1,9 @@
 /* ============= GLOBAL CSS =============== */
 
+/* #root * {
+  border: 2px solid red;
+} */
+
 *,
 ::after,
 ::before {

@@ -64,6 +64,9 @@ JOHN-COURSE {
             - zdefiniowanie funkcji w komponencie pobranej z contextu:
             const { toggleSidebar } = useDashboardContext();
         }
+    SEKCJA 9️⃣: Server {
+        //TODO opisz działanie darkTheme w dashboard i w App
+    }
 }
 
 
