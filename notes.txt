@@ -63,14 +63,44 @@ JOHN-COURSE {
             import { useDashboardContext } from "../pages/DashboardLayout";
             - zdefiniowanie funkcji w komponencie pobranej z contextu:
             const { toggleSidebar } = useDashboardContext();
-        }
+
+        💥 checkDefaultTheme z App.jsx sprawdza czy jest ciasteczko z dark/light mode i zwraca bool.
+        💥 komponent DashboardLayout wywołuje tę funkcję żeby sprawdzić jaką ikonkę ma wyświetlić (słońce/księżyc)
+        💥 kliknięcie słońce/księżyc zmienia ciasteczko oraz ustawić odpowiednie atrybuty w document.body
+    }
     SEKCJA 9️⃣: Server {
-        //TODO opisz działanie darkTheme w dashboard i w App
+        💥 pamiętaj o '.js' w importowaniu danych z plików w module node.js.
+        💥 test-default.js {export default someValue;} -> import randomValue from "./test-default.js"; pobieramy defaultową wartość i nazywamy ją jak chcemy.
+        💥 test-named.js {export const value = 42;} -> import { value } from "./test-named.js"; pobieramy konkretną wartość z danego pliku.
+
+        💥 Express - minimalistyczny framework do node, wykorzystywany przy obsłudze requestów HTTP oraz tworzenia SPA API
+        💥 Nodemon - poprawia pracę developera, monitoruje kod node'a i restartuje gdy nadarzy się taka potrzeba (np podczas pracy nad aplikacją i modyfikowaniu kodu).
+        💥 Thunder Client - rozszerzenie do VSC, które zapeniwa narzędzia do testowania i debugowania serwera, http requestów, badania headerów, wyświetlania JSON/XML podczas tworzenia aplikacji.
+        💥 Morgan - tworzy logi do middleware requestow
+        💥 Dotenv - obsługuje zmienne środowiskowe
+        💥 używać fetch w node express, można dopiero od wersji node 18 (2022r). Wcześniej trzeba było robić fikołki. Przykład fetcha:
+            fetch("https://www.course-api.com/react-useReducer-cart-project")
+                .then((res) => res.json())
+                .then((data) => console.log(data));
+        💥 Nanoid generuje URL z krótki id na długie 64 symbolowe znaki
+        💥 ustawienie statusu na 404 na wszystkie routy, które nie zostały zdefiniowane w app
+            app.use("*", (req, res) => {
+                res.status(404).json({ msg: "not found" });
+            });
+        💥 obsługa błędów w app, jest trigerowany na poziomie route/serwera (np wywoła zmienną, która nie jest zdefiniowana)
+            app.use((err, req, res, next) => {
+                console.log(err);
+                res.status(500).json({ msg: "something went wrong" });
+            });
     }
 }
 
 
-
+HTTP STATUS {
+    200: sukces (GET),
+    201: sukces (PUT),
+    404: porażka (PUT) z wiadomością do wyświetlenia użytkownikowi
+}
 
 
 
