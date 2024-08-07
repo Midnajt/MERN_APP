@@ -92,6 +92,31 @@ JOHN-COURSE {
                 console.log(err);
                 res.status(500).json({ msg: "something went wrong" });
             });
+
+        💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
+        
+        💥 Mongoose - Object Data Modeling (ODM), biblioteka do obsługi MongoDB
+        💥 schematy w mongoose opisują strukturę dokumentów, przechowywanych w kolekcji
+        💥 w tym przypadku api na serwerze przestanie działać gdy doprowadzimy do błędu {
+                export const createJob = async (req, res) => {
+                    const job = await Job.create("something");
+
+                    res.status(200).json({ job });
+                };
+            }
+        💥 jeżeli wstawimy ją w try/catch to wyświetli/zwróci błąd, ale będzie wciąż działać {
+                export const createJob = async (req, res) => {
+                    try {
+                        const job = await Job.create("something");
+
+                        res.status(200).json({ job });
+                    } catch (error) {
+                        console.log(error);
+                        res.status(500).json({ msg: "server error" });
+                    }
+                };
+            }
+        💥 express-async-errors - express middleware, które pomaga obsługiwać błędy w asynchronicznych funkcjach. Dzięki niej nie trzeba za każdym razem używać try/catch
     }
 }
 
