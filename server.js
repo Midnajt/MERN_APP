@@ -21,10 +21,6 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-app.post("/", (req, res) => {
-  res.json({ message: "data recived", data: req.body });
-});
-
 app.use("/api/v1/jobs", jobRouter);
 
 app.use("*", (req, res) => {
