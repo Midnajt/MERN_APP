@@ -117,6 +117,20 @@ JOHN-COURSE {
                 };
             }
         💥 express-async-errors - express middleware, które pomaga obsługiwać błędy w asynchronicznych funkcjach. Dzięki niej nie trzeba za każdym razem używać try/catch
+        💥 {  const updatedJob = await Job.findByIdAndUpdate(id, req.body, {
+                new: true, // domyślnie zwraca obiekt przed wykonaniem update, ten atrybut sprawia że zwraca zaktualizowaną wartość
+            });}
+        💥 Status Code - biblioteka mająca za zadanie obśłużenie statusów i pomoc w obsłudze ich deweloperowi. Zmniejsza szanse na błędne ich wykorzystanie
+            - 200 OK ok
+            - 201 CREATED Created
+
+            - 400 BAD_REQUEST Bad Request
+            - 401 UNAUTHORIZED Unauthorized
+
+            - 403 FORBIDDEN Forbidden
+            - 404 NOT_FOUND Not Found
+
+            - 500 INTERNAL_SERVER_ERROR Internal Server Error
     }
 }
 
