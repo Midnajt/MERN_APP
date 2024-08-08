@@ -131,20 +131,71 @@ JOHN-COURSE {
             - 404 NOT_FOUND Not Found
 
             - 500 INTERNAL_SERVER_ERROR Internal Server Error
+
+        💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥
+
+        💥 Express-validator
+
+        💥 Dodawanie route na przykładzie authRote
+            - w server.js 
+                import authRouter from "./routes/authRouter.js";
+                app.use("/api/v1/auth", authRouter);
+            - w authRouter.js tworzymy routy 
+                import { Router } from "express";
+                const router = Router();
+
+                import { login, register } from "../controllers/authController.js";
+
+                router.post("/login", validateRegisterInput, login);
+                router.post("/register", validateRegisterInput, register);
+
+                export default router;
+            - w authController.js tworzymy metody wywoływane na route'ach wraz z ich walidacją
+                import { StatusCodes } from "http-status-codes";
+                import User from "../models/UserModel.js";
+
+                export const register = async (req, res) => {
+                    const user = await User.create(req.body);
+                res.status(StatusCodes.CREATED).json({ user });
+                };
+
+                export const login = async (req, res) => {
+                    res.send("login");
+                };
+
+            - w validationMiddleware.js tworzymy funkcję do obsługiwania inputów z formularza
+                export const validateRegisterInput = withValidationErrors([
+                    body("name").notEmpty().withMessage("name is required"),
+                    body("email")
+                        .notEmpty()
+                        .withMessage("email is required")
+                        .isEmail()
+                        .withMessage("invalid email format")
+                        .custom(async (email) => {
+                        const user = await User.findOne({ email });
+                        if (user) {
+                            throw new BadRequestError("email already exist");
+                        }
+                        }),
+                    body("password").notEmpty().withMessage("password is required").isLength({ min: 8 }).withMessage("password must be at least 8 characters length"),
+                    body("lastName").notEmpty().withMessage("lastName is required"),
+                    body("location").notEmpty().withMessage("location is required"),
+                ]);
+            
+            💥 JWT - Jason Web Token
+            💥 cookie-parset pozwala sprawdzić cookie po stronie backendu, cookie po stronie frontendu nie będzie dostępne
+
+
+
     }
 }
 
-
+************************************************************************************************************************************************************************
 HTTP STATUS {
     200: sukces (GET),
     201: sukces (PUT),
     404: porażka (PUT) z wiadomością do wyświetlenia użytkownikowi
 }
-
-
-
-
-
 
 
 ***
