@@ -9,6 +9,7 @@ import cookieParser from "cookie-parser";
 
 // routers
 import jobRouter from "./routes/jobRouter.js";
+import userRouter from "./routes/userRouter.js";
 import authRouter from "./routes/authRouter.js";
 
 // middleware
@@ -25,7 +26,12 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
+app.get("/api/v1/test", (req, res) => {
+  res.json({ msg: "test" });
+});
+
 app.use("/api/v1/jobs", authenticateUser, jobRouter);
+app.use("/api/v1/users", authenticateUser, userRouter);
 app.use("/api/v1/auth", authRouter);
 
 app.use("*", (req, res) => {
