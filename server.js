@@ -6,6 +6,14 @@ const app = express();
 import morgan from "morgan";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
+import cors from "cors";
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 // routers
 import jobRouter from "./routes/jobRouter.js";
@@ -24,10 +32,6 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Hello World");
-});
-
-app.get("/api/v1/test", (req, res) => {
-  res.json({ msg: "test" });
 });
 
 app.use("/api/v1/jobs", authenticateUser, jobRouter);
