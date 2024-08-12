@@ -184,9 +184,33 @@ JOHN-COURSE {
             
             💥 JWT - Jason Web Token
             💥 cookie-parset pozwala sprawdzić cookie po stronie backendu, cookie po stronie frontendu nie będzie dostępne
+    }
+    SEKCJA 1️⃣0️⃣: Register Page {
+        💥 akcje zawsze muszą zwracać jakieś value
+              {
+                path: "register",
+                element: <Register />,
+                action: () => {
+                console.log("hello there");
+                },
+            },
+        💥 pobieramy FROM z 'react-router-dom' i ustawiamy method
+            <Form method='post' className='form'>    
+        💥 pobieranie danych z fomularza POST wykorzystując API formData. 'akcja' musi zwracać obiekt, w tym przypadku redirect
+            export const action = async ({ request }) => {
+                const formData = await request.formData();
+                const data = Object.fromEntries(formData);
 
-
-
+                try {
+                    await customFetch.post("/auth/register", data);
+                    return redirect("/login");
+                } catch (error) {
+                    console.log(error);
+                    return error;
+                }
+            };
+        💥 React Toastify biblioteka do wyświetlania komunikatów
+        💥 toast.error(error?.response?.data?.msg); -> taka składnia sprawdza czy dany obiekt istnieje zanim spróbuj sięgnąć po wskazany atrybut
     }
 }
 
