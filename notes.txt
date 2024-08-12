@@ -223,7 +223,10 @@ JOHN-COURSE {
                     return redirect("/");
                 }
             };
-
+    }
+    
+    SEKCJA 1️⃣1️⃣: Jobs Pages {
+        💥 { useOutletContext } from "react-router-dom"; pozwala korzystać z kontextu przekazywanego w <Outlet context={{ user }} />
     }
 }
 
