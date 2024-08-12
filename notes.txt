@@ -211,6 +211,19 @@ JOHN-COURSE {
             };
         💥 React Toastify biblioteka do wyświetlania komunikatów
         💥 toast.error(error?.response?.data?.msg); -> taka składnia sprawdza czy dany obiekt istnieje zanim spróbuj sięgnąć po wskazany atrybut
+        💥 useActionData służy zarządzania błędami w action i wyświetlania komunikatów zdefiniowanych przez nas w kodzie
+        💥 loader służy do pobrania danych zanim wyświetli się komponent wykorzystujący te dane
+        💥 w komponencie wykorzystujemy załadowane dane używając const data = useLoaderData(); z 'react-router-dom'
+        💥 ciasteczka w raz z tokenem przesyłane są automatycznie. Poniższy route zwraca dane użytkownika na podstawie id pobranego z cookie.
+            export const loader = async () => {
+                try {
+                    const { data } = await customFetch.get("/users/current-user");
+                    return data;
+                } catch (error) {
+                    return redirect("/");
+                }
+            };
+
     }
 }
 
