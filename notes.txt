@@ -227,7 +227,30 @@ JOHN-COURSE {
     
     SEKCJA 1️⃣1️⃣: Jobs Pages {
         💥 { useOutletContext } from "react-router-dom"; pozwala korzystać z kontextu przekazywanego w <Outlet context={{ user }} />
+        💥 
     }
+    
+    SEKCJA 1️⃣2️⃣: Admin Page {
+        💥 
+    }
+    SEKCJA 1️⃣3️⃣: Admin Page {
+        💥 co robi encType='multipart/form-data' w <Form/>?
+        💥 co jeszcze może być w accept?
+                    <input type='file' id='avatar' name='avatar' className='form-input' accept='image/*' />
+    }
+    SEKCJA 1️⃣4️⃣: Profile Page {
+        💥 multer to paczka middleware do obsługi multi-part formData, np obrazków.
+        💥 Cloudinary to oparta na chmurze platforma do zarządzania multimediami, która pomaga firmom przechowywać, optymalizować i dostarczać obrazy i filmy w Internecie.
+        💥 w ciele komponentu do przekierowywania użytkownika na inny url wykorzystujemy    useNavigate()
+        const navigate = useNavigate();
+        navigate("/dashboard");
+        💥 poza komponentenm, np w action lub loader wykorzystujemy redirect('/dashboard')
+    }
+    SEKCJA 1️⃣5️⃣:  {💥}
+    SEKCJA 1️⃣6️⃣:  {💥}
+    SEKCJA 1️⃣7️⃣:  {💥}
+    SEKCJA 1️⃣8️⃣:  {💥}
+    SEKCJA 1️⃣9️⃣:  {💥}
 }
 
 ************************************************************************************************************************************************************************
