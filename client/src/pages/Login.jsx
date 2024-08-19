@@ -41,8 +41,8 @@ function Login() {
       <Form className='form' method='post'>
         <Logo />
         <h4>Login</h4>
-        <FormRow type='email' name='email' defaultValue='j.smith@gmail.com' />
-        <FormRow type='password' name='password' defaultValue='secret123' />
+        <FormRow type='email' name='email' />
+        <FormRow type='password' name='password' />
         <SubmitBtn />
         <button type='buttpm' className='btn btn-block' onClick={loginDemoUser}>
           explore the app
