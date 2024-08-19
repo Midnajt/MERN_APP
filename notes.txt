@@ -251,7 +251,9 @@ JOHN-COURSE {
     SEKCJA 1️⃣6️⃣: All Jobs Page {
         💥
     }
-    SEKCJA 1️⃣7️⃣:  {💥}
+    SEKCJA 1️⃣7️⃣:  {
+        💥
+    }
     SEKCJA 1️⃣8️⃣:  {💥}
     SEKCJA 1️⃣9️⃣:  {💥}
 }
