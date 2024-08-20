@@ -254,7 +254,138 @@ JOHN-COURSE {
     SEKCJA 1️⃣7️⃣:  {
         💥
     }
-    SEKCJA 1️⃣8️⃣:  {💥}
+    SEKCJA 1️⃣8️⃣:  {
+        💥 ReactQuery zapamiętuje nasze query do db
+        💥 importujemy paczki
+            import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+            import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+        💥 definiujemy klient i ustawiamy czas odnawiania query na 5 minut w tym przypadku
+            const queryClient = new QueryClient({
+                defaultOptions: {
+                    queries: {
+                    staleTime: 1000 * 60 * 5,
+                    },
+                },
+            });
+        💥 okraszamy provider'em aplikacją (z routerem). ReactQueryDevtools służy dodebugowania i wyświetla się tylko w środowisku deweloperskim.
+                <QueryClientProvider client={queryClient}>
+                    <RouterProvider router={router}></RouterProvider>
+                    <ReactQueryDevtools initialIsOpen={false}></ReactQueryDevtools>
+                </QueryClientProvider>
+        💥 Komponent z działającym react query przed wstawieniem go do loadera:
+                import { ChartsContainer, StatsContainer } from "../components";
+                import customFetch from "../utils/customFetch";
+                import { useLoaderData } from "react-router-dom";
+                import { useQuery } from "@tanstack/react-query";
+
+                export const loader = async () => {
+                return null;
+                const response = await customFetch.get("/jobs/statss");
+                return response.data;
+                };
+
+                function Stats() {
+                // const { defaultStats, monthlyApplications } = useLoaderData();
+
+                const { isLoading, isError, data } = useQuery({
+                    queryKey: ["stats"],
+                    queryFn: () => customFetch.get("/jobs/stats"),
+                });
+
+                if (isLoading) return <h4>Loading...</h4>;
+                if (isError) return <h4>Error...</h4>;
+                const { defaultStats, monthlyApplications } = data.data;
+
+                // return <h1>react query</h1>;
+
+                return (
+                    <>
+                    <StatsContainer defaultStats={defaultStats} />
+                    {monthlyApplications?.length > 0 && <ChartsContainer data={monthlyApplications} />}
+                    </>
+                );
+                }
+                export default Stats;
+            💥 Poniżej ReactQuery w loaderze. queryClient musi być przekazywanu do funkcji loader w routerze
+                import { ChartsContainer, StatsContainer } from "../components";
+                import customFetch from "../utils/customFetch";
+                import { useQuery } from "@tanstack/react-query";
+
+                const statsQuery = {
+                queryKey: ["stats"],
+                queryFn: async () => {
+                    const response = await customFetch.get("/jobs/stats");
+                    return response.data;
+                },
+                };
+
+                export const loader = (queryClient) => async () => {
+                const data = await queryClient.ensureQueryData(statsQuery);
+                return data;
+                };
+
+                function Stats() {
+                const { data } = useQuery(statsQuery);
+
+                const { defaultStats, monthlyApplications } = data;
+
+                return (
+                    <>
+                    <StatsContainer defaultStats={defaultStats} />
+                    {monthlyApplications?.length > 0 && <ChartsContainer data={monthlyApplications} />}
+                    </>
+                );
+                }
+                export default Stats;
+
+                router:
+                {
+                    path: "stats",
+                    element: <Stats />,
+                    loader: statsLoader(queryClient),
+                    errorElement: <ErrorElement />,
+                },
+                💥 action w logowaniu posiada queryClient.invalidateQueries(). Dzięki temu czyści ciasteczka reactQuery gdy ktoś nowy się loguje.
+                💥 w Profile action posiada queryClient.invalidateQueries(["user"]); dzięki czemu po zaktualizowaniu danych użytkownia z formularza (reactQuery posiada key 'user'), ciasteczka reactQuery są czyszczone i to zapytania wykonuje się ponownie.
+                💥 Poniższa funkcja wykorzystywana jest w loaderze wyświetlającym wszyste pozycje z db. Strona z tymi pozycjami posiada filtry, dzięki temu że filtry zostały dodane do queryFn, reactQuery zapisuje je jako niezależne zapytania i zapisuje w pamięci. Bez tego rozwiązania po pierwszym query zamiana filtrów nie wywoływałaby aktualizacji kolejnego ponieważ reactQuery posiadałby już zapisaną wartość.
+                const allJobsQuery = (params) => {
+                    const { search, jobStatus, jobType, sort, page } = params;
+                    return {
+                        queryKey: ["jobs", search ?? "", jobStatus ?? "all", jobType ?? "all", sort ?? "newest", page ?? "1"],
+                        queryFn: async () => {
+                        const { data } = await customFetch.get("/jobs", {
+                            params,
+                        });
+                        return data;
+                        },
+                    };
+                };
+            💥 Axios Interceptors. Jeżeli ktoś ręcznie usunie cookie z tokenem to dzięki poniższemu kodowi użytkownik zostanie przekierowany na stronę logowania po wykonaniu akcji (npm aktualizacji profilu)
+              const logoutUser = useCallback(async () => {
+                    navigate("/");
+                    await customFetch.get("auth/logout");
+                    queryClient.invalidateQueries();
+                    toast.success("Logging out");
+                }, [navigate, queryClient]);
+
+                customFetch.interceptors.response.use(
+                    (response) => {
+                    return response;
+                    },
+                    (error) => {
+                    if (error?.response?.status === 401) {
+                        setIsAuthError(true);
+                    }
+                    return Promise.reject(error);
+                    }
+                );
+
+                useEffect(() => {
+                    if (!isAuthError) return;
+                    logoutUser();
+                }, [isAuthError, logoutUser]);
+
+    }
     SEKCJA 1️⃣9️⃣:  {💥}
 }
 
