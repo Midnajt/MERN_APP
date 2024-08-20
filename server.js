@@ -46,7 +46,8 @@ app.use(express.static(path.resolve(__dirname, "./client/dist")));
 app.use(cookieParser());
 app.use(express.json());
 
-app.get("mern-app-ear4.onrender.com/", (req, res) => {
+// app.get("mern-app-ear4.onrender.com/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
